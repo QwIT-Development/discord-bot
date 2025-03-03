@@ -33,8 +33,8 @@ class Forum(commands.GroupCog):
             return await interaction.response.send_message("Egyéb indok esetén meg kell adnod egy megjegyzést is.", ephemeral=True)
         try:
             await interaction.channel.add_tags(discord.utils.get(interaction.channel.parent.available_tags, name="SOLVED"), reason="Megjelölve: Solved")
-        except apc.CommandInvokeError:
-            return await interaction.response.send_message("Nincs elkészítve helyesen a 'SOLVED' címke! A bot a címke nevét keresi, fontos, hogy pontosan így nézzen ki: `SOLVED` (a nagybetűk és kisbetűk számítanak!)", ephemeral=True)
+        except:
+            return await interaction.response.send_message("Valószínűleg nincs elkészítve helyesen a 'SOLVED' címke! A bot a címke nevét keresi, fontos, hogy pontosan így nézzen ki: `SOLVED` (a nagybetűk és kisbetűk számítanak!)", ephemeral=True)
         await interaction.response.send_message(
             embed=discord.Embed(
             title="Lezárva",
